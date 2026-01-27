@@ -1,11 +1,12 @@
 import { Bell, ChevronDown, Search } from "lucide-react";
 import "./Header.scss";
+import Logo from "../../assets/Group.svg";
 
 const Header = () => {
   return (
       <header className="header">
           <div className="header__left">
-              <h2 className="header__logo">Lendsqr</h2>
+              <img src={Logo} alt="Lendsqr logo" className="header__logo"/>
           </div>
 
           <div className="header__search">

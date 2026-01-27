@@ -9,10 +9,10 @@
     font-family: "Inter", sans-serif;
 
     &__logo{
-        color: #2563eb;
-        font-weight: 700;
-        font-size: 1.5rem;
-        margin-left: 2rem;
+       height: 28px;
+       object-fit: contain;
+       cursor: pointer;
+       margin-left: 30px;
     }
 
     &__search{
