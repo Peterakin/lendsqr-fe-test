@@ -28,8 +28,6 @@ const UsersPage = () => {
 
     if (loading) return <p>Loading...</p>;
     
-    console.log(users)
-    
     return (
         <div className="users__page">
             <h2>Users</h2>
