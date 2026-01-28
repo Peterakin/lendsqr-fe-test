@@ -1,7 +1,35 @@
 import { Database, File, ListFilter, MoreVertical, Users2 } from "lucide-react";
-import "./Users.scss"
+import "./UsersPage.scss";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import type { User, UserResponse } from "../../types/user";
 
-const Users = () => {
+const UsersPage = () => {
+  const [users, setUsers] = useState<User[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const res = await axios.get<UserResponse>(
+          "https://mocki.io/v1/4f7dfa1c-b8a8-4501-ac33-87523f68808e"
+        );
+
+        setUsers(res.data.users);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
+    if (loading) return <p>Loading...</p>;
+    
+    console.log(users)
+    
     return (
         <div className="users__page">
             <h2>Users</h2>
@@ -72,56 +100,23 @@ const Users = () => {
                     </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <td>Lendsqr</td>
-                        <td>Adedeji</td>
-                        <td>adedeji@lendsqr.com</td>
-                        <td>08078903721</td>
-                        <td>May 15, 2020 10:00 AM</td>
-                        <td><span className={`status ${"Active"}`}>Active</span></td>
-                        <td className="action">
-                            <MoreVertical size={16}/>
-                        </td>
-                    </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                        <td>Lendsqr</td>
-                        <td>Adedeji</td>
-                        <td>adedeji@lendsqr.com</td>
-                        <td>08078903721</td>
-                        <td>May 15, 2020 10:00 AM</td>
-                        <td><span className={`status ${"Inactive"}`}>Inactive</span></td>
-                        <td className="action">
-                            <MoreVertical size={16}/>
-                        </td>
-                    </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                        <td>Lendsqr</td>
-                        <td>Adedeji</td>
-                        <td>adedeji@lendsqr.com</td>
-                        <td>08078903721</td>
-                        <td>May 15, 2020 10:00 AM</td>
-                        <td><span className={`status ${"Pending"}`}>Pending</span></td>
-                        <td className="action">
-                            <MoreVertical size={16}/>
-                        </td>
-                    </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                        <td>Lendsqr</td>
-                        <td>Adedeji</td>
-                        <td>adedeji@lendsqr.com</td>
-                        <td>08078903721</td>
-                        <td>May 15, 2020 10:00 AM</td>
-                        <td><span className={`status ${"Blacklisted"}`}>Blacklisted</span></td>
-                        <td className="action">
-                            <MoreVertical size={16}/>
-                        </td>
-                    </tr>
+                        {users.map((user, index) => (
+                            <tr key={index}>
+                                <td>{user.organization}</td>
+                                <td>{user.username}</td>
+                                <td>{user.email}</td>
+                                <td>{user.phone}</td>
+                                <td>{new Date(user.dateJoined).toLocaleString()}</td>
+                                <td>
+                                    <span className={`status ${user.status}`}>
+                                        {user.status}
+                                    </span>
+                                </td>
+                                <td className="action">
+                                    <MoreVertical size={16} />
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
@@ -129,4 +124,4 @@ const Users = () => {
     )
 }
 
-export default Users;
+export default UsersPage;
