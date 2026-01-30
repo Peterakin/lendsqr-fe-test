@@ -1,6 +1,7 @@
-import { ArrowLeftRight, BadgePercent, Briefcase, ChartColumnIncreasing, ChevronDown, Clipboard, Coins, HandCoins, Handshake, Home, Landmark, LoaderPinwheel, PiggyBank, Scroll, SlidersHorizontal, User, UserCog, UserRoundCheck, UserRoundX, Users, Wallet } from "lucide-react";
+import { ArrowLeftRight, BadgePercent, Briefcase, ChartColumnIncreasing, ChevronDown, Clipboard, Coins, HandCoins, Handshake, Home, Landmark, LoaderPinwheel, LogOut, MessageCircle, PiggyBank, Scroll, SlidersHorizontal, User, UserCog, UserRoundCheck, UserRoundX, Users, Wallet } from "lucide-react";
 import "./Sidebar.scss";
 import type { JSX } from "react";
+import { Link } from "react-router-dom";
 
 type MenuItem = {
     label: string,
@@ -51,7 +52,8 @@ const menu: MenuSection[] = [
         items: [
             { label: "Preference", icon: <SlidersHorizontal size={16} /> },
             { label: "Fees and Pricing", icon: <BadgePercent size={16} /> },
-            { label: "Audit Logs", icon: <Clipboard size={16} /> }
+            { label: "Audit Logs", icon: <Clipboard size={16} /> },
+            { label: "Systems messages", icon: <MessageCircle size={16} /> }
         ]
     }
 ]
@@ -84,6 +86,14 @@ const Sidebar = ({ className = "" }: SidebarProps) => {
                     ))}
                 </div>
             ))}
+
+            <div className="sidebar__logout">
+                <span>
+                    <Link to={"/login"} ><LogOut size={16} />  Logout</Link>
+                </span>
+
+                <p>v1.2.0</p>
+            </div>
         </aside>
     )
 }

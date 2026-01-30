@@ -67,6 +67,26 @@
     }
     }
 }
+
+&__logout{
+    color: #6b7280;
+    font-size: 0.8rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    cursor: pointer;
+
+    p{
+        margin-top: 20px;
+    }
+
+    a{
+        text-decoration: none;
+        display: flex;
+        color: #6b7280;
+    }
+}
 }
 
 /* MOBILE */
