@@ -1,73 +1,137 @@
-# React + TypeScript + Vite
+📊 Users Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive Users Management Dashboard built with React, TypeScript, and SCSS, featuring data fetching, filtering, pagination, and user detail views. This project demonstrates clean component architecture, state management, and real-world UI patterns commonly used in admin dashboards.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📋 Display users in a structured table
 
-## React Compiler
+🔍 Filter users by:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Organization
 
-## Expanding the ESLint configuration
+Username
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Email
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Status
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Date joined
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+📄 Pagination with configurable items per page
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+👁 View individual user details
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+🎯 Action menu (View, Activate, Blacklist)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+📱 Fully responsive (mobile, tablet, desktop)
+
+⚡ Fast mock API integration
+
+💡 Clean TypeScript typings
+
+🛠 Tech Stack
+
+Frontend: React + TypeScript
+
+Styling: SCSS (modular & responsive)
+
+Routing: React Router DOM
+
+HTTP Requests: Axios
+
+Icons: Lucide React
+
+Mock API: Mocki.io
+
+📂 Project Structure
+src/
+│
+├── components/
+│ ├── FilterModal/
+│ └── Sidebar/
+│
+├── layout/
+│ └── DashboardLayout/
+│
+├── pages/
+│ ├── Users/
+│ ├── UserDetails/
+│ └── Login/
+│
+├── types/
+│ ├── user.ts
+│ └── filters.ts
+│
+├── App.tsx
+└── main.tsx
+
+📡 API Used
+
+User data is fetched from a mock API:
+
+https://mocki.io/v1/5b30cd42-1916-438a-9aa0-4772a9ae43e0
+
+The API returns a list of users with details such as organization, email, phone number, status, and date joined.
+
+⚙️ Installation & Setup
+1️⃣ Clone the repository
+git clone https://github.com/Peterakin/lendsqr-fe-test
+
+2️⃣ Navigate to the project folder
+cd lendsqr-fe-test
+
+3️⃣ Install dependencies
+npm install
+
+4️⃣ Start the development server
+npm run dev
+
+The app will run at:
+
+http://localhost:5173
+
+🧪 Key Functionalities Explained
+Filtering
+
+Filters are applied client-side using controlled inputs.
+
+Users can reset or apply filters via a modal interface.
+
+Pagination
+
+Dynamic pagination based on filtered results.
+
+Adjustable page size (10, 50, 100).
+
+Responsiveness
+
+Desktop: full table view
+
+Mobile: stacked table rows (no horizontal scrolling)
+
+Touch-friendly action menu
+
+🧩 Improvements & Future Enhancements
+
+🔐 Authentication & role-based access
+
+🌐 Real backend integration
+
+🧠 Server-side filtering & pagination
+
+📊 Analytics dashboard
+
+🌓 Dark mode support
+
+🧪 Unit & integration tests
+
+👨‍💻 Author
+
+Peter Akinlosotu
+Frontend Developer
+📍 Abuja, Nigeria
+
+📄 License
+
+This project is open-source and available for learning and portfolio purposes.
