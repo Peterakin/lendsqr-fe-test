@@ -32,7 +32,7 @@ const UsersPage = () => {
     }
 
 
-    const [filters, setFilters] = useState<UserFilters>({
+    const [, setFilters] = useState<UserFilters>({
         organization: "",
         username: "",
         email: "",
